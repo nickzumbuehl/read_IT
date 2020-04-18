@@ -30,6 +30,10 @@ for i in range(0, news.shape[0]):
     cleanHeadlines_train.append(cleanHeadline)
 
 vectorizer = sklearn.feature_extraction.text.CountVectorizer(analyzer="word", max_features=1700)
+
+pickle.dump(vectorizer, open("vectorizer.p", "wb"))
+
+
 bagOfWords_train = vectorizer.fit_transform(cleanHeadlines_train)
 print(vectorizer.get_feature_names())
 
