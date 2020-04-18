@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #FFFFFF;
+  background-color: #D3EFFC;
   margin: 5%;
 }
 
@@ -18,12 +18,11 @@ body {
 }
 
 .pretty_container {
-  border-radius: 0px;
+  border-radius: 10px;
   background-color: #f9f9f9;
   margin: 5px;
   padding: 5px;
   position: relative;
-  box-shadow: 2px 2px 2px lightgrey;
 }
 
 .bare_container {
@@ -104,9 +103,8 @@ body {
 }
 
 .bg-grey{
-  background-color: #7CCF92;
-  border-radius: 0px;
-  box-shadow: 2px 2px 2px lightgrey;
+  background-color: #043E5B;
+  border-radius: 10px;
 }
 
 #right-column {

@@ -2,11 +2,12 @@ dash
 dash_html_components
 dash_core_components
 plotly
-dash_table
 pandas
 dash
 numpy
+sklearn
 scikit-learn
 gunicorn
 re
+pickle
 nltk

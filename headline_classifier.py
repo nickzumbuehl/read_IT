@@ -14,7 +14,6 @@ news = pd.read_csv("uci-news-aggregator.csv")
 
 # functions
 
-
 def get_words(headlines):
     headlines_onlyletters = re.sub("[^a-zA-Z]", " ",headlines)
     words = headlines_onlyletters.lower().split()
@@ -74,6 +73,8 @@ list_of_headlines = ['New cancer medication has been found',
 badofwords_validation = vectorizer.transform(list_of_headlines)
 X_validation = badofwords_validation.toarray()
 predictions = nb.predict(X_validation)
+
+predictions[0]
 
 series_pred = pd.Series(predictions, name='Prediction').reset_index()
 series_headlines = pd.Series(list_of_headlines, name='Headlines').reset_index()
