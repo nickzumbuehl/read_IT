@@ -8,6 +8,4 @@ numpy
 sklearn
 scikit-learn
 gunicorn
-re
 pickle
-nltk
