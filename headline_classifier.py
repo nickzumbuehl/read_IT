@@ -7,6 +7,7 @@ import numpy as np
 import sklearn
 from sklearn.naive_bayes import MultinomialNB
 import joblib
+import pickle
 
 # loading data
 news = pd.read_csv("uci-news-aggregator.csv")
@@ -39,6 +40,10 @@ Y_train = np.array(news["CATEGORY"])
 # make classification :: try XG Boost as well (appears to work best)
 nb = MultinomialNB()
 nb.fit(X_train, Y_train)
+
+s = pickle.dumps(nb)
+pickle.dump(nb, open("classifier.p", "wb"))
+
 
 filename = 'headline_classifier.sav'
 joblib.dump(nb, filename)
