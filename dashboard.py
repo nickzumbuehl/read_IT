@@ -25,20 +25,8 @@ app.config.suppress_callback_exceptions = True
 
 app.layout = html.Div(
     children=[
-        # html.Div(
-        #     className='row',
-        #     children=[
-        #         html.H1(
-        #             className='bg-grey eight columns offset-by-two columns',
-        #             children=[
-        #                 'AI Classification of Unseen News Headlines'
-        #             ]
-        #         )
-        #     ]
-        #
-        # ),
         html.H1(
-            className='bg-grey eight columns offset-by-two columns',
+            className='bg-grey ten columns offset-by-one columns',
             children=[
                 'AI Classification of Unseen News Headlines'
             ]
@@ -47,7 +35,7 @@ app.layout = html.Div(
             className='row',
             children=[
                 html.Div(
-                    className='pretty_container eight columns offset-by-two columns',
+                    className='pretty_container ten columns offset-by-one columns',
                     children=[
                         html.H2('The algorithm was trained on a data set consisting of Economics & Business,'
                                 ' Science & Technology, Health & Health Care and Entertainment news articles from the'
@@ -61,7 +49,7 @@ app.layout = html.Div(
             className='row',
             children=[
                 html.Div(
-                    className='pretty_container eight columns offset-by-two columns',
+                    className='pretty_container ten columns offset-by-one columns',
                     children=[dcc.Input(
                         id="input_{}".format("text"), type="text",
                         placeholder="What is your Headline?",
@@ -73,7 +61,7 @@ app.layout = html.Div(
         html.Div(className='row',
                  children=[
                      html.Div(
-                         className='pretty_container eight columns offset-by-two columns',
+                         className='pretty_container ten columns offset-by-one columns',
                          children=[
                              html.Div(id="out-all-types")
                          ]
