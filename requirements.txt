@@ -5,6 +5,5 @@ plotly
 pandas
 dash
 numpy
-sklearn
 scikit-learn
 gunicorn
