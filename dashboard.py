@@ -6,16 +6,13 @@ import plotly.graph_objects as go
 import joblib
 import os
 import pickle
+import requests
+import json
+import pandas as pd
 
-
+# read models
 model = pickle.load(open("classifier.p", "rb"))
 vectorizer = pickle.load(open("vectorizer.p", "rb"))
-
-input = ['microprocessors become cheaper']
-
-badofwords_validation = vectorizer.transform(input)
-X_validation = badofwords_validation.toarray()
-predictions = model.predict(X_validation)
 
 
 app = dash.Dash(__name__)
@@ -75,6 +72,17 @@ app.layout = html.Div(
     [Input("input_{}".format("text"), "value")],
 )
 def cb_render(input_string):
+
+    # add here
+    url_trans = 'https://api.deepl.com/v2/translate'
+    payload = {'auth_key': 'e90be2dd-92b3-920e-5d78-be332af77f0b',
+               'text': input_string,
+               'target_lang': 'EN'}
+    r = requests.get(url_trans, params=payload)
+    output_text = json.loads(r.text)['translations'][0]
+    input_string = output_text['text']
+    # add stop
+
     badofwords_validation = vectorizer.transform([str(input_string)])
     X_validation = badofwords_validation.toarray()
     predictions = model.predict(X_validation)
