@@ -63,7 +63,16 @@ app.layout = html.Div(
                              html.Div(id="out-all-types")
                          ]
                      )
-                 ])
+                 ]),
+        html.Div(className='row',
+                 children=[
+                     html.Img(
+                         className='pretty_container ten columns offset-by-one columns',
+                         src='https://img.nzz.ch/C=W4739,H2665.688,X0,Y247.1563/S=W1200M,H675M/O=75/C=AR1200x675/https://nzz-img.s3.amazonaws.com/2020/5/5/8c9dfe2a-1e93-4e08-9e46-f87b5677daa8.jpeg?wmark=nzz'
+                     )
+                 ]),
+
+        #
     ]
 )
 
@@ -72,8 +81,6 @@ app.layout = html.Div(
     [Input("input_{}".format("text"), "value")],
 )
 def cb_render(input_string):
-
-    # add here
     url_trans = 'https://api.deepl.com/v2/translate'
     payload = {'auth_key': 'e90be2dd-92b3-920e-5d78-be332af77f0b',
                'text': input_string,
@@ -81,7 +88,6 @@ def cb_render(input_string):
     r = requests.get(url_trans, params=payload)
     output_text = json.loads(r.text)['translations'][0]
     input_string = output_text['text']
-    # add stop
 
     badofwords_validation = vectorizer.transform([str(input_string)])
     X_validation = badofwords_validation.toarray()

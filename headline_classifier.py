@@ -100,7 +100,24 @@ print(translation)
 # website: https://xkcd.com
 import requests
 import json
+from newsapi import NewsApiClient
+import pandas as pd
 
+# Initiation of API with key
+newsapi = NewsApiClient(api_key='4ffaa0cb22f44814800f9b47f3fc176e')
+
+all_articles = newsapi.get_top_headlines(country='ch', q='Corona')
+
+all_articles['articles']
+df_corona_articles = pd.DataFrame(all_articles['articles'])
+
+df = pd.DataFrame(all_articles['articles'])
+print(df.urlToImage[2])
+
+all_nzz = newsapi.get_everything(sources='Www.nzz.ch', domains=)
+
+
+# Access DeepL API
 url_aut = 'https://api.deepl.com/v2/usage?auth_key=e90be2dd-92b3-920e-5d78-be332af77f0b'
 
 url_trans = 'https://api.deepl.com/v2/translate'
