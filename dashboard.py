@@ -36,9 +36,9 @@ df_in_german = pd.DataFrame(everything_german['articles'])
 
 app.layout = html.Div(
     children=[
-        html.Div(className='row',
+        html.Div(className='one-third column',
                  children=[
-                     html.Div(className='pretty_container four columns',
+                     html.Div(className='pretty_container twelve columns',
                               children=[
                                   html.Div(className='row',
                                            children=[
@@ -48,7 +48,35 @@ app.layout = html.Div(
                                            ]
                                   ),
                               ]),
-                     html.Div(className='pretty_container_two four columns',
+                     html.Div(className='pretty_container_two twelve columns',
+                              children=[
+                                  html.Div(
+                                      className='row',
+                                      children=[html.Img(
+                                          className='pretty_container_two twelve columns',
+                                          src=df_in_german.urlToImage[0]
+                                      )
+                                      ]
+                                  ),
+                                  html.H5(
+                                      className='row',
+                                      children=[df_in_german.title[0]]
+                                  ),
+                                  html.H6(
+                                      className='row',
+                                      children=[df_in_german.description[0] + ' (Source: {})'.format(df_in_german.source[0]['name'])]
+                                  ),
+                                  html.Div(
+                                      className='row',
+                                      children=[
+                                          html.Div(className='bare_container four columns offset-by-eight columns',
+                                                   children=[
+                                                       html.A("ReadIT", href=df_in_german.url[0], target="_blank"),  # , target="_blank"
+                                                   ]),
+                                      ]
+                                  ),
+                              ]),
+                     html.Div(className='pretty_container twelve columns',
                               children=[
                                   html.Div(
                                       className='row',
@@ -76,23 +104,26 @@ app.layout = html.Div(
                                       ]
                                   ),
                               ]),
-                     html.Div(className='pretty_container four columns',
+                 ]),
+        html.Div(className='one-third column',
+                 children=[
+                     html.Div(className='pretty_container_two twelve columns',
                               children=[
                                   html.Div(
                                       className='row',
                                       children=[html.Img(
-                                          className='pretty_container twelve columns',
-                                          src=df_in_german.urlToImage[18]
+                                          className='pretty_container_two twelve columns',
+                                          src=df_in_german.urlToImage[2]
                                       )
                                       ]
                                   ),
                                   html.H5(
                                       className='row',
-                                      children=[df_in_german.title[18]]
+                                      children=[df_in_german.title[2]]
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[18] + ' (Source: {})'.format(df_in_german.source[2]['name'])]
+                                      children=[df_in_german.description[2] + ' (Source: {})'.format(df_in_german.source[2]['name'])]
                                   ),
                                   html.Div(
                                       className='row',
@@ -103,11 +134,8 @@ app.layout = html.Div(
                                                    ]),
                                       ]
                                   ),
-                              ])
-                 ]),
-        html.Div(className='row',
-                 children=[
-                     html.Div(className='pretty_container_two four columns',
+                              ]),
+                     html.Div(className='pretty_container twelve columns',
                               children=[
                                   html.Div(
                                       className='row',
@@ -123,24 +151,26 @@ app.layout = html.Div(
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[3] + ' (Source: {})'.format(df_in_german.source[3]['name'])]
+                                      children=[df_in_german.description[3] + ' (Source: {})'.format(
+                                          df_in_german.source[3]['name'])]
                                   ),
                                   html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[3], target="_blank"),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[3], target="_blank"),
+                                                       # , target="_blank"
                                                    ]),
                                       ]
                                   ),
                               ]),
-                     html.Div(className='pretty_container four columns',
+                     html.Div(className='pretty_container_two twelve columns',
                               children=[
                                   html.Div(
                                       className='row',
                                       children=[html.Img(
-                                          className='pretty_container twelve columns',
+                                          className='pretty_container_two twelve columns',
                                           src=df_in_german.urlToImage[4]
                                       )
                                       ]
@@ -151,19 +181,24 @@ app.layout = html.Div(
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[4] + ' (Source: {})'.format(df_in_german.source[4]['name'])]
+                                      children=[df_in_german.description[4] + ' (Source: {})'.format(
+                                          df_in_german.source[4]['name'])]
                                   ),
                                   html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[4], target="_blank"),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[4], target="_blank"),
+                                                       # , target="_blank"
                                                    ]),
                                       ]
                                   ),
                               ]),
-                     html.Div(className='pretty_container_two four columns',
+                 ]),
+        html.Div(className='one-third column',
+                 children=[
+                     html.Div(className='pretty_container twelve columns',
                               children=[
                                   html.Div(
                                       className='row',
@@ -191,136 +226,109 @@ app.layout = html.Div(
                                       ]
                                   ),
                               ]),
-                         ]),
-        html.Div(className='row',
-                         children=[
-                             html.Div(className='pretty_container four columns',
-                                      children=[
-                                          html.Div(
-                                              className='row',
-                                              children=[html.Img(
-                                                  className='pretty_container twelve columns',
-                                                  src=df_in_german.urlToImage[6]
-                                              )
-                                              ]
-                                          ),
-                                          html.H5(
-                                              className='row',
-                                              children=[df_in_german.title[6]]
-                                          ),
-                                          html.H6(
-                                              className='row',
-                                              children=[df_in_german.description[6] + ' (Source: {})'.format(df_in_german.source[6]['name'])]
-                                          ),
-                                          html.Div(
+                     html.Div(className='pretty_container_two twelve columns',
+                              children=[
+                                  html.Div(
+                                      className='row',
+                                      children=[html.Img(
+                                          className='pretty_container_two twelve columns',
+                                          src=df_in_german.urlToImage[6]
+                                      )
+                                      ]
+                                  ),
+                                  html.H5(
+                                      className='row',
+                                      children=[df_in_german.title[6]]
+                                  ),
+                                  html.H6(
+                                      className='row',
+                                      children=[df_in_german.description[6] + ' (Source: {})'.format(
+                                          df_in_german.source[6]['name'])]
+                                  ),
+                                  html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[6], target="_blank"),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[6], target="_blank"),
+                                                       # , target="_blank"
                                                    ]),
                                       ]
                                   ),
-                                      ]),
-                             html.Div(className='pretty_container_two four columns',
-                                      children=[
-                                          html.Div(
-                                              className='row',
-                                              children=[html.Img(
-                                                  className='pretty_container twelve columns',
-                                                  src=df_in_german.urlToImage[7]
-                                              )
-                                              ]
-                                          ),
-                                          html.H5(
-                                              className='row',
-                                              children=[df_in_german.title[7]]
-                                          ),
-                                          html.H6(
-                                              className='row',
-                                              children=[df_in_german.description[7] + ' (Source: {})'.format(df_in_german.source[7]['name'])]
-                                          ),
-                                          html.Div(
+                              ]),
+                     html.Div(className='pretty_container twelve columns',
+                              children=[
+                                  html.Div(
+                                      className='row',
+                                      children=[html.Img(
+                                          className='pretty_container twelve columns',
+                                          src=df_in_german.urlToImage[7]
+                                      )
+                                      ]
+                                  ),
+                                  html.H5(
+                                      className='row',
+                                      children=[df_in_german.title[7]]
+                                  ),
+                                  html.H6(
+                                      className='row',
+                                      children=[df_in_german.description[7] + ' (Source: {})'.format(
+                                          df_in_german.source[7]['name'])]
+                                  ),
+                                  html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[7], target="_blank"),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[7], target="_blank"),
+                                                       # , target="_blank"
                                                    ]),
                                       ]
                                   ),
-                                      ]),
-                             html.Div(className='pretty_container four columns',
-                                      children=[
-                                          html.Div(
-                                              className='row',
-                                              children=[html.Img(
-                                                  className='pretty_container twelve columns',
-                                                  src=df_in_german.urlToImage[8]
-                                              )
-                                              ]
-                                          ),
-                                          html.H5(
-                                              className='row',
-                                              children=[df_in_german.title[8]]
-                                          ),
-                                          html.H6(
-                                              className='row',
-                                              children=[df_in_german.description[8] + ' (Source: {})'.format(df_in_german.source[8]['name'])]
-                                          ),
-                                          html.Div(
-                                      className='row',
-                                      children=[
-                                          html.Div(className='bare_container four columns offset-by-eight columns',
-                                                   children=[
-                                                       html.A("ReadIT", href=df_in_german.url[8], target="_blank"),  # , target="_blank"
-                                                   ]),
-                                      ]
-                                  ),
-                                      ])
-                         ]),
-        html.H1(
-            className='bg-grey ten columns offset-by-one columns',
-            children=[
-                'AI Classification of Unseen News Headlines'
-            ]
-        ),
-        html.Div(
-            className='row',
-            children=[
-                html.Div(
-                    className='pretty_container ten columns offset-by-one columns',
-                    children=[
-                        html.H2('The algorithm was trained on a data set consisting of Economics & Business,'
-                                ' Science & Technology, Health & Health Care and Entertainment news articles from the'
-                                ' United States. The AI aims to classify unseen news headlines according to these'
-                                ' four clusters. Have fun testing it out!')
-                    ]
-                )
-            ]
-        ),
-        html.Div(
-            className='row',
-            children=[
-                html.Div(
-                    className='pretty_container ten columns offset-by-one columns',
-                    children=[dcc.Input(
-                        id="input_{}".format("text"), type="text",
-                        placeholder="What is your Headline?",
-                    ),
-                    ]
-                ),
-            ],
-        ),
-        html.Div(className='row',
-                 children=[
-                     html.Div(
-                         className='pretty_container ten columns offset-by-one columns',
-                         children=[
-                             html.Div(id="out-all-types")
-                         ]
-                     )
+                              ]),
                  ]),
+        # html.H1(
+        #     className='row bg-grey',
+        #     children=[
+        #         'AI Classification of Unseen News Headlines'
+        #     ]
+        # ),
+        # html.Div(
+        #     className='row',
+        #     children=[
+        #         html.Div(
+        #             className='pretty_container ten columns offset-by-one columns',
+        #             children=[
+        #                 html.H2('The algorithm was trained on a data set consisting of Economics & Business,'
+        #                         ' Science & Technology, Health & Health Care and Entertainment news articles from the'
+        #                         ' United States. The AI aims to classify unseen news headlines according to these'
+        #                         ' four clusters. Have fun testing it out!')
+        #             ]
+        #         )
+        #     ]
+        # ),
+        # html.Div(
+        #     className='row',
+        #     children=[
+        #         html.Div(
+        #             className='pretty_container ten columns offset-by-one columns',
+        #             children=[dcc.Input(
+        #                 id="input_{}".format("text"), type="text",
+        #                 placeholder="What is your Headline?",
+        #             ),
+        #             ]
+        #         ),
+        #     ],
+        # ),
+        # html.Div(className='row',
+        #          children=[
+        #              html.Div(
+        #                  className='pretty_container ten columns offset-by-one columns',
+        #                  children=[
+        #                      html.Div(id="out-all-types")
+        #                  ]
+        #              )
+        #          ]),
     ]
 )
 
