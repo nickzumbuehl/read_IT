@@ -93,7 +93,8 @@ newsapi = NewsApiClient(api_key='4ffaa0cb22f44814800f9b47f3fc176e')  # client ke
 
 
 # headlines Switzerland
-headlines_ch = newsapi.get_top_headlines(country='ch')
+headlines_ch = newsapi.get_top_headlines(country='ch',
+                                         page_size=100)
 df_headlined_ch = pd.DataFrame(headlines_ch['articles'])
 
 # Sources from Germany
@@ -102,8 +103,9 @@ df_sources = pd.DataFrame(sources_germany['sources'])
 
 # all german news
 everything_german = newsapi.get_everything(
-    q='Flüchtling',
-    language='de',
+    sources='handelsblatt,wirtschafts-woche,der-tagesspiegel,focus'
+    # q='Flüchtling',
+    # language='de',
 )
 df_in_german = pd.DataFrame(everything_german['articles'])
 df_in_german.columns

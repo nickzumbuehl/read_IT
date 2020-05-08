@@ -25,7 +25,11 @@ app.config.suppress_callback_exceptions = True
 newsapi = NewsApiClient(api_key='4ffaa0cb22f44814800f9b47f3fc176e')  # client key should be secret
 
 # pulling some news here
-everything_german = newsapi.get_everything(q='corona', language='de')
+everything_german = newsapi.get_everything(
+    sources='handelsblatt,wirtschafts-woche,der-tagesspiegel,focus'
+    # q='Flüchtling',
+    # language='de',
+)
 df_in_german = pd.DataFrame(everything_german['articles'])
 
 app.layout = html.Div(
@@ -54,11 +58,11 @@ app.layout = html.Div(
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[0]]
+                                      children=[df_in_german.description[0] + ' (Source: {})'.format(df_in_german.source[0]['name'])]
                                   ),
                                   html.Div(className='bare_container four columns offset-by-eight columns',
                                            children=[
-                                               html.A("ReadIT", href=df_in_german.url[0]),  # , target="_blank"
+                                               html.A("ReadIT", href=df_in_german.url[0], target="_blank"),  # , target="_blank"
                                                    ]),
                               ]),
                      html.Div(className='pretty_container_two four columns',
@@ -77,14 +81,14 @@ app.layout = html.Div(
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[1]]
+                                      children=[df_in_german.description[1] + ' (Source: {})'.format(df_in_german.source[1]['name'])]
                                   ),
                                   html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[1]),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[1], target="_blank"),  # , target="_blank"
                                                    ]),
                                       ]
                                   ),
@@ -105,14 +109,14 @@ app.layout = html.Div(
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[2]]
+                                      children=[df_in_german.description[2] + ' (Source: {})'.format(df_in_german.source[2]['name'])]
                                   ),
                                   html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[2]),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[2], target="_blank"),  # , target="_blank"
                                                    ]),
                                       ]
                                   ),
@@ -136,14 +140,14 @@ app.layout = html.Div(
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[3]]
+                                      children=[df_in_german.description[3] + ' (Source: {})'.format(df_in_german.source[3]['name'])]
                                   ),
                                   html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[3]),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[3], target="_blank"),  # , target="_blank"
                                                    ]),
                                       ]
                                   ),
@@ -164,14 +168,14 @@ app.layout = html.Div(
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[4]]
+                                      children=[df_in_german.description[4] + ' (Source: {})'.format(df_in_german.source[4]['name'])]
                                   ),
                                   html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[4]),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[4], target="_blank"),  # , target="_blank"
                                                    ]),
                                       ]
                                   ),
@@ -192,14 +196,14 @@ app.layout = html.Div(
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[5]]
+                                      children=[df_in_german.description[5] + ' (Source: {})'.format(df_in_german.source[5]['name'])]
                                   ),
                                   html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[5]),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[5], target="_blank"),  # , target="_blank"
                                                    ]),
                                       ]
                                   ),
@@ -223,14 +227,14 @@ app.layout = html.Div(
                                           ),
                                           html.H6(
                                               className='row',
-                                              children=[df_in_german.description[6]]
+                                              children=[df_in_german.description[6] + ' (Source: {})'.format(df_in_german.source[6]['name'])]
                                           ),
                                           html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[6]),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[6], target="_blank"),  # , target="_blank"
                                                    ]),
                                       ]
                                   ),
@@ -251,14 +255,14 @@ app.layout = html.Div(
                                           ),
                                           html.H6(
                                               className='row',
-                                              children=[df_in_german.description[7]]
+                                              children=[df_in_german.description[7] + ' (Source: {})'.format(df_in_german.source[7]['name'])]
                                           ),
                                           html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[7]),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[7], target="_blank"),  # , target="_blank"
                                                    ]),
                                       ]
                                   ),
@@ -279,14 +283,14 @@ app.layout = html.Div(
                                           ),
                                           html.H6(
                                               className='row',
-                                              children=[df_in_german.description[8]]
+                                              children=[df_in_german.description[8] + ' (Source: {})'.format(df_in_german.source[8]['name'])]
                                           ),
                                           html.Div(
                                       className='row',
                                       children=[
                                           html.Div(className='bare_container four columns offset-by-eight columns',
                                                    children=[
-                                                       html.A("ReadIT", href=df_in_german.url[8]),  # , target="_blank"
+                                                       html.A("ReadIT", href=df_in_german.url[8], target="_blank"),  # , target="_blank"
                                                    ]),
                                       ]
                                   ),
