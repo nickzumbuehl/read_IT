@@ -40,8 +40,13 @@ app.layout = html.Div(
                  children=[
                      html.Div(className='pretty_container four columns',
                               children=[
-                                  html.Img(
-                                      src='https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png'),
+                                  html.Div(className='row',
+                                           children=[
+                                               html.Img(
+                                                   className='pretty_container twelve columns',
+                                                   src='https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png'),
+                                           ]
+                                  ),
                               ]),
                      html.Div(className='pretty_container_two four columns',
                               children=[
