@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe270c72-2590-425e-b09c-5e65c824289d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +15,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dashboard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="287" column="33" lean-forward="true" selection-start-line="287" selection-start-column="33" selection-end-line="287" selection-end-column="33" />
+            <state relative-caret-position="256">
+              <caret line="344" column="61" selection-start-line="344" selection-start-column="61" selection-end-line="344" selection-end-column="61" />
+              <caret line="349" column="73" selection-start-line="349" selection-start-column="73" selection-end-line="349" selection-end-column="73" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -276,8 +276,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="287" column="33" lean-forward="true" selection-start-line="287" selection-start-column="33" selection-end-line="287" selection-end-column="33" />
+        <state relative-caret-position="256">
+          <caret line="344" column="61" selection-start-line="344" selection-start-column="61" selection-end-line="344" selection-end-column="61" />
+          <caret line="349" column="73" selection-start-line="349" selection-start-column="73" selection-end-line="349" selection-end-column="73" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

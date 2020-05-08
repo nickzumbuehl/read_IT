@@ -104,6 +104,34 @@ app.layout = html.Div(
                                       ]
                                   ),
                               ]),
+                     html.Div(className='pretty_container_two twelve columns',
+                              children=[
+                                  html.Div(
+                                      className='row',
+                                      children=[html.Img(
+                                          className='pretty_container_two twelve columns',
+                                          src=df_in_german.urlToImage[8]
+                                      )
+                                      ]
+                                  ),
+                                  html.H5(
+                                      className='row',
+                                      children=[df_in_german.title[8]]
+                                  ),
+                                  html.H6(
+                                      className='row',
+                                      children=[df_in_german.description[8] + ' (Source: {})'.format(df_in_german.source[8]['name'])]
+                                  ),
+                                  html.Div(
+                                      className='row',
+                                      children=[
+                                          html.Div(className='bare_container four columns offset-by-eight columns',
+                                                   children=[
+                                                       html.A("ReadIT", href=df_in_german.url[8], target="_blank"),  # , target="_blank"
+                                                   ]),
+                                      ]
+                                  ),
+                              ]),
                  ]),
         html.Div(className='one-third column',
                  children=[
@@ -195,6 +223,34 @@ app.layout = html.Div(
                                       ]
                                   ),
                               ]),
+                     html.Div(className='pretty_container twelve columns',
+                              children=[
+                                  html.Div(
+                                      className='row',
+                                      children=[html.Img(
+                                          className='pretty_container twelve columns',
+                                          src=df_in_german.urlToImage[9]
+                                      )
+                                      ]
+                                  ),
+                                  html.H5(
+                                      className='row',
+                                      children=[df_in_german.title[9]]
+                                  ),
+                                  html.H6(
+                                      className='row',
+                                      children=[df_in_german.description[9] + ' (Source: {})'.format(df_in_german.source[9]['name'])]
+                                  ),
+                                  html.Div(
+                                      className='row',
+                                      children=[
+                                          html.Div(className='bare_container four columns offset-by-eight columns',
+                                                   children=[
+                                                       html.A("ReadIT", href=df_in_german.url[9], target="_blank"),  # , target="_blank"
+                                                   ]),
+                                      ]
+                                  ),
+                              ]),
                  ]),
         html.Div(className='one-third column',
                  children=[
@@ -282,6 +338,34 @@ app.layout = html.Div(
                                                    children=[
                                                        html.A("ReadIT", href=df_in_german.url[7], target="_blank"),
                                                        # , target="_blank"
+                                                   ]),
+                                      ]
+                                  ),
+                              ]),
+                     html.Div(className='pretty_container_two twelve columns',
+                              children=[
+                                  html.Div(
+                                      className='row',
+                                      children=[html.Img(
+                                          className='pretty_container_two twelve columns',
+                                          src=df_in_german.urlToImage[10]
+                                      )
+                                      ]
+                                  ),
+                                  html.H5(
+                                      className='row',
+                                      children=[df_in_german.title[10]]
+                                  ),
+                                  html.H6(
+                                      className='row',
+                                      children=[df_in_german.description[10] + ' (Source: {})'.format(df_in_german.source[10]['name'])]
+                                  ),
+                                  html.Div(
+                                      className='row',
+                                      children=[
+                                          html.Div(className='bare_container four columns offset-by-eight columns',
+                                                   children=[
+                                                       html.A("ReadIT", href=df_in_german.url[10], target="_blank"),  # , target="_blank"
                                                    ]),
                                       ]
                                   ),
