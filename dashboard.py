@@ -99,17 +99,17 @@ app.layout = html.Div(
                                       className='row',
                                       children=[html.Img(
                                           className='pretty_container twelve columns',
-                                          src=df_in_german.urlToImage[2]
+                                          src=df_in_german.urlToImage[18]
                                       )
                                       ]
                                   ),
                                   html.H5(
                                       className='row',
-                                      children=[df_in_german.title[2]]
+                                      children=[df_in_german.title[18]]
                                   ),
                                   html.H6(
                                       className='row',
-                                      children=[df_in_german.description[2] + ' (Source: {})'.format(df_in_german.source[2]['name'])]
+                                      children=[df_in_german.description[18] + ' (Source: {})'.format(df_in_german.source[2]['name'])]
                                   ),
                                   html.Div(
                                       className='row',
