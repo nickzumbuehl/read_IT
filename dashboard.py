@@ -30,6 +30,12 @@ df_in_german = pd.DataFrame(everything_german['articles'])
 
 app.layout = html.Div(
     children=[
+        html.H1(
+            className='bg-grey',
+            children=[
+                'Welcome to ReadIT'
+            ]
+        ),
         html.Div(className='row',
                  children=[
                      html.Div(className='pretty_container four columns',
