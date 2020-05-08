@@ -20,8 +20,8 @@ body {
 .pretty_container {
   border-radius: 10px;
   background-color: #E6EEF0;
-  margin: 5px;
-  padding: 5px;
+  margin:  2px;
+  padding: 2px;
   position: relative;
 }
 
@@ -35,8 +35,8 @@ body {
 .pretty_container_two {
   border-radius: 10px;
   background-color: #FFDEC8;
-  margin: 5px;
-  padding: 5px;
+  margin: 2px;
+  padding: 2px;
   position: relative;
 }
 
