@@ -101,7 +101,10 @@ sources_germany = newsapi.get_sources(country='de')
 df_sources = pd.DataFrame(sources_germany['sources'])
 
 # all german news
-everything_german = newsapi.get_everything(q='Flüchtling', language='de')
+everything_german = newsapi.get_everything(
+    q='Flüchtling',
+    language='de',
+)
 df_in_german = pd.DataFrame(everything_german['articles'])
 df_in_german.columns
 df_in_german.source[0]['name']
