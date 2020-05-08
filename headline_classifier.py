@@ -82,21 +82,6 @@ df_results = series_headlines.merge(series_pred, on='index').drop(['index'], axi
 print(df_results)
 
 
-sentence = 'I like turtles.'
-from_language = 'EN'
-to_language = 'ES'
-
-translation = pydeepl.translate(sentence, to_language, from_lang=from_language)
-
-
-print(translation)
-
-# Using auto-detection
-translation = pydeepl.translate(sentence, to_language)
-print(translation)
-
-# working with API's in Python
-
 # website: https://xkcd.com
 import requests
 import json
@@ -104,17 +89,37 @@ from newsapi import NewsApiClient
 import pandas as pd
 
 # Initiation of API with key
-newsapi = NewsApiClient(api_key='4ffaa0cb22f44814800f9b47f3fc176e')
+newsapi = NewsApiClient(api_key='4ffaa0cb22f44814800f9b47f3fc176e')  # client key should be secret
 
-all_articles = newsapi.get_top_headlines(country='ch', q='Corona')
 
-all_articles['articles']
-df_corona_articles = pd.DataFrame(all_articles['articles'])
+# headlines Switzerland
+headlines_ch = newsapi.get_top_headlines(country='ch')
+df_headlined_ch = pd.DataFrame(headlines_ch['articles'])
 
-df = pd.DataFrame(all_articles['articles'])
-print(df.urlToImage[2])
+# Sources from Germany
+sources_germany = newsapi.get_sources(country='de')
+df_sources = pd.DataFrame(sources_germany['sources'])
 
-all_nzz = newsapi.get_everything(sources='Www.nzz.ch', domains=)
+# all german news
+everything_german = newsapi.get_everything(q='Flüchtling', language='de')
+df_in_german = pd.DataFrame(everything_german['articles'])
+df_in_german.columns
+df_in_german.source[0]['name']
+
+type(df_in_german.title[0])
+type(df_in_german.urlToImage[0])
+df_in_german.urlToImage[0]
+df_in_german.source[0]
+
+# From a specific paper
+pull_handelsblatt = newsapi.get_everything(sources='handelsblatt')  # problem some sources do not have an 'id'
+df_handelsblatt = pd.DataFrame(pull_handelsblatt['articles'])
+
+# news from a country
+all_articles_2 = newsapi.get_top_headlines(country='ch')
+df_swiss = pd.DataFrame(all_articles_2['articles'])
+
+df_handelsblatt
 
 
 # Access DeepL API

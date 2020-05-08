@@ -25,6 +25,21 @@ body {
   position: relative;
 }
 
+.pretty_container_read {
+  border-radius: 10px;
+  background-color: #C2C8C8;
+  margin: 1px;
+  padding: 1px;
+}
+
+.pretty_container_two {
+  border-radius: 10px;
+  background-color: #DEF2FE;
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+}
+
 .bare_container {
   margin: 0 0 0 0;
   padding: 0 0 0 0;

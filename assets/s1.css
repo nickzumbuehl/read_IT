@@ -236,14 +236,14 @@ h4 {
   margin-top: 1.2rem;
 }
 h5 {
-  font-size: 2.2rem;
+  font-size: 2.0rem;
   line-height: 1.5;
   letter-spacing: -0.05rem;
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
 }
 h6 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   letter-spacing: 0;
   margin-bottom: 0.75rem;
@@ -268,8 +268,11 @@ blockquote {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
   color: #1eaedb;
+  font-size: 2.0rem;
   text-decoration: underline;
   cursor: pointer;
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
 }
 a:hover {
   color: #0fa0ce;
