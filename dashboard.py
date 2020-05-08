@@ -32,38 +32,16 @@ everything_german = newsapi.get_everything(
 )
 df_in_german = pd.DataFrame(everything_german['articles'])
 
+# logo.png
+
 app.layout = html.Div(
     children=[
-        html.H1(
-            className='bg-grey',
-            children=[
-                'Welcome to ReadIT'
-            ]
-        ),
         html.Div(className='row',
                  children=[
                      html.Div(className='pretty_container four columns',
                               children=[
-                                  html.Div(
-                                      className='row',
-                                      children=[html.Img(
-                                          className='pretty_container twelve columns',
-                                          src=df_in_german.urlToImage[0]
-                                      )
-                                      ]
-                                  ),
-                                  html.H5(
-                                      className='row',
-                                      children=[df_in_german.title[0]]
-                                  ),
-                                  html.H6(
-                                      className='row',
-                                      children=[df_in_german.description[0] + ' (Source: {})'.format(df_in_german.source[0]['name'])]
-                                  ),
-                                  html.Div(className='bare_container four columns offset-by-eight columns',
-                                           children=[
-                                               html.A("ReadIT", href=df_in_german.url[0], target="_blank"),  # , target="_blank"
-                                                   ]),
+                                  html.Img(
+                                      src='https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png'),
                               ]),
                      html.Div(className='pretty_container_two four columns',
                               children=[
