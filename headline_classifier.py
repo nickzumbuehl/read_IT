@@ -82,6 +82,16 @@ df_results = series_headlines.merge(series_pred, on='index').drop(['index'], axi
 print(df_results)
 
 
+def get_options(list_stocks):
+    dict_list = []
+    for i in list_stocks:
+        dict_list.append({"label": i, "value": i})
+
+    return dict_list
+
+get_options(['stock', 'king'])
+
+
 # website: https://xkcd.com
 import requests
 import json
@@ -103,12 +113,32 @@ df_sources = pd.DataFrame(sources_germany['sources'])
 df_sources.name.shape  # 129
 
 
+df_sources.language.unique()
+
+get_options(df_sources.name)
+
 # all german news
 everything_german = newsapi.get_everything(
-    sources='handelsblatt,wirtschafts-woche,der-tagesspiegel,focus'
-    # q='Flüchtling',
-    # language='de',
-)
+    q='oil AND USA',
+    language='en')
+df_ = pd.DataFrame(everything_german['articles'])
+df_.title[0]
+
+df_.urlToImage[5]
+
+df_.urlToImage == ''
+
+df_[df_.urlToImage == ''].urlToImage = "https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png"
+import numpy as np
+np.where(df_.urlToImage == '')[0][0]
+
+df_.urlToImage[np.where(df_.urlToImage == '')[0][0]] = "https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png"
+
+df_[df_.urlToImage == '', df_.urlToImage] = 'sad'
+
+
+df_.urlToImage[5]
+
 df_in_german = pd.DataFrame(everything_german['articles'])
 df_in_german.columns
 df_in_german.source[0]['name']

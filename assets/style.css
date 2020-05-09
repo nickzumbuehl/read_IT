@@ -37,6 +37,7 @@ body {
   border-left: 25px solid #000066 !important;
   border-right: 25px solid #A7D8DC !important;
   border-bottom: 25px solid #A7D8DC !important;
+  font-size: 20px;
 }
 
 .pretty_container_read {
