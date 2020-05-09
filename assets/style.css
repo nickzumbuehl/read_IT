@@ -20,7 +20,7 @@ body {
 
 .pretty_container {
   border-radius: 0px;
-  background-color: #E6EEF0;
+  background-color: #E5E5EF;
   border-color: #FFFFFF;
   margin:  2px;
   padding: 2px;
@@ -35,8 +35,8 @@ body {
   position: relative;
   border-top: 25px solid #000066 !important;
   border-left: 25px solid #000066 !important;
-  border-right: 25px solid #E57373 !important;
-  border-bottom: 25px solid #E57373 !important;
+  border-right: 25px solid #A7D8DC !important;
+  border-bottom: 25px solid #A7D8DC !important;
 }
 
 .pretty_container_read {
@@ -48,7 +48,7 @@ body {
 
 .pretty_container_two {
   border-radius: 0px;
-  background-color: #E57373;
+  background-color: #D3EBED;
   border-width: 1.5px;
   border-color: #FFFFFF;
   margin: 2px;
@@ -73,7 +73,7 @@ body {
     padding: 12px !important;
     font-family: "Calibri Light", Calibri Light, sans-serif;
     display: flex !important;
-    font-size: 18px;
+    font-size: 16px;
     align-items: center;
     margin:  4px;
     justify-content: center;
@@ -81,7 +81,7 @@ body {
 
 .custom-tab--selected {
     color: black;
-    border-bottom: 10px solid #E57373 !important;
+    border-bottom: 10px solid #A7D8DC !important;
 }
 
 .dcc_control {
