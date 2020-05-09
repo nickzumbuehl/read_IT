@@ -98,8 +98,10 @@ headlines_ch = newsapi.get_top_headlines(country='ch',
 df_headlined_ch = pd.DataFrame(headlines_ch['articles'])
 
 # Sources from Germany
-sources_germany = newsapi.get_sources(country='de')
+sources_germany = newsapi.get_sources()  ## all sources available on the API
 df_sources = pd.DataFrame(sources_germany['sources'])
+df_sources.name.shape  # 129
+
 
 # all german news
 everything_german = newsapi.get_everything(

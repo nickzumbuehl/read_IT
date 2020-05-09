@@ -75,7 +75,7 @@
     width: 13.3333333333%;
   }
   .three.columns {
-    width: 22%;
+    width: 22.9999995%;
   }
   .four.columns {
     width: 21.6666666667%;
@@ -99,7 +99,7 @@
     width: 82.6666666667%;
   }
   .eleven.columns {
-    width: 91.3333333333%;
+    width: 90.5%;
   }
   .twelve.columns {
     width: 100%;
@@ -107,7 +107,7 @@
   }
 
   .one-third.column {
-    width: 30.6666666667%;
+    width: 32.6666666667%;
   }
   .two-thirds.column {
     width: 65.3333333333%;
@@ -140,7 +140,7 @@
   }
   .offset-by-six.column,
   .offset-by-six.columns {
-    margin-left: 52%;
+    margin-left: 57.5%;
   }
   .offset-by-seven.column,
   .offset-by-seven.columns {
@@ -160,7 +160,7 @@
   }
   .offset-by-eleven.column,
   .offset-by-eleven.columns {
-    margin-left: 95.3333333333%;
+    margin-left: 75.3333333333%;
   }
 
   .offset-by-one-third.column,
@@ -208,7 +208,7 @@ h6 {
   font-weight: 300;
 }
 h1 {
-  font-size: 4.0rem;
+  font-size: 2.0rem;
   line-height: 1.2;
   letter-spacing: -0.1rem;
   margin-bottom: 2rem;
@@ -263,6 +263,34 @@ blockquote {
   margin-bottom: 2rem;
   margin-left: 0rem;
 }
+
+/* Tabs
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 10px;
+  width: 25%;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
+
 
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

@@ -5,7 +5,8 @@
 
 body {
   background-color: #FFFFFF;
-  margin: 1%;
+  margin-top: 0% !important;
+  margin: 0%;
 }
 
 .two.columns {
@@ -18,23 +19,38 @@ body {
 }
 
 .pretty_container {
-  border-radius: 10px;
+  border-radius: 0px;
   background-color: #E6EEF0;
+  border-color: #FFFFFF;
   margin:  2px;
   padding: 2px;
   position: relative;
 }
 
+.border_container {
+  border-radius: 0px;
+  background-color: #FFFFFF;
+  margin:  2px;
+  padding: 2px;
+  position: relative;
+  border-top: 25px solid #000066 !important;
+  border-left: 25px solid #000066 !important;
+  border-right: 25px solid #E57373 !important;
+  border-bottom: 25px solid #E57373 !important;
+}
+
 .pretty_container_read {
-  border-radius: 10px;
+  border-radius: 0px;
   background-color: #C2C8C8;
   margin: 1px;
   padding: 1px;
 }
 
 .pretty_container_two {
-  border-radius: 10px;
-  background-color: #FFDEC8;
+  border-radius: 0px;
+  background-color: #000066;
+  border-width: 1.5px;
+  border-color: #FFFFFF;
   margin: 2px;
   padding: 2px;
   position: relative;
@@ -43,6 +59,29 @@ body {
 .bare_container {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
+}
+
+.custom-tab {
+    color:#586069;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: 3px solid transparent !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+    background-color: #fafbfc;
+    padding: 12px !important;
+    font-family: "Calibri Light", Calibri Light, sans-serif;
+    display: flex !important;
+    font-size: 18px;
+    align-items: center;
+    margin:  4px;
+    justify-content: center;
+}
+
+.custom-tab--selected {
+    color: black;
+    border-bottom: 10px solid #E57373 !important;
 }
 
 .dcc_control {
