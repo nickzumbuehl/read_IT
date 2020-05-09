@@ -5,7 +5,7 @@
 
 body {
   background-color: #FFFFFF;
-  margin-top: 0% !important;
+  margin-top: 3% !important;
   margin: 0%;
 }
 
@@ -33,13 +33,25 @@ body {
   margin:  2px;
   padding: 2px;
   position: relative;
-  border-top: 25px solid #000066 !important;
-  border-left: 25px solid #000066 !important;
-  border-right: 25px solid #A7D8DC !important;
-  border-bottom: 25px solid #A7D8DC !important;
+  border-top: 10px solid #000066 !important;
+  border-left: 10px solid #000066 !important;
+  border-right: 10px solid #A7D8DC !important;
+  border-bottom: 10px solid #A7D8DC !important;
   font-size: 20px;
 }
 
+.border_container_two {
+  border-radius: 0px;
+  background-color: #FFFFFF;
+  margin:  2px;
+  padding: 2px;
+  position: relative;
+  border-top: 10px solid #A7D8DC !important;
+  border-left: 10px solid #A7D8DC !important;
+  border-right: 10px solid #000066 !important;
+  border-bottom: 10px solid #000066 !important;
+  font-size: 10px;
+}
 .pretty_container_read {
   border-radius: 0px;
   background-color: #C2C8C8;
@@ -60,6 +72,7 @@ body {
 .bare_container {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
+  font-size: 20px;
 }
 
 .custom-tab {
@@ -74,7 +87,7 @@ body {
     padding: 12px !important;
     font-family: "Calibri Light", Calibri Light, sans-serif;
     display: flex !important;
-    font-size: 16px;
+    font-size: 18px;
     align-items: center;
     margin:  4px;
     justify-content: center;
@@ -82,7 +95,7 @@ body {
 
 .custom-tab--selected {
     color: black;
-    border-bottom: 10px solid #A7D8DC !important;
+    border-bottom: 10px solid #000066 !important;
 }
 
 .dcc_control {

@@ -56,12 +56,12 @@ app.layout = html.Div(
             className="bare_container ten columns offset-by-one column",
             children=[
                 dcc.Tabs(
-                    className="bare_container five columns offset-by-six column",
+                    className="bare_container eight columns offset-by-four$ column",
                     children=[
                         dcc.Tab(
                             className="custom-tab",
                             selected_className="custom-tab--selected",
-                            label="YOUR NEWSPAPER",
+                            label="NEWS ROOM",
                             children=[
                                 html.Div(
                                     className="one-third column",
@@ -523,10 +523,10 @@ app.layout = html.Div(
                         dcc.Tab(
                             className="custom-tab",
                             selected_className="custom-tab--selected",
-                            label="YOUR FILTER",
+                            label="FILTER ENGINE",
                             children=[
                                 html.Div(
-                                    className="border_container twelve columns",  # add a SEARCH Button (do reduce searches)
+                                    className="bare_container twelve columns",  # add a SEARCH Button (do reduce searches)
                                     children=[
                                         html.Div(
                                             className="row",
@@ -543,7 +543,6 @@ app.layout = html.Div(
                                                                         df_sources.id
                                                                     ),
                                                                     multi=False,
-                                                                    # value="handelsblatt",
                                                                 )
                                                             ],
                                                         ),
@@ -595,7 +594,7 @@ app.layout = html.Div(
                         dcc.Tab(
                             className="custom-tab",
                             selected_className="custom-tab--selected",
-                            label="VISIT SOURCE",
+                            label="VISIT THE SOURCE",
                         ),
                     ],
                 ),
@@ -820,6 +819,10 @@ def generate_output(input_sources, input_languages, input_word_search):
                                 ],
                             ),
                         ],
+                    ),
+                    html.Img(
+                        className="border_container twelve columns",
+                        src="https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png",
                     ),
                     html.Div(
                         className="pretty_container twelve columns",
