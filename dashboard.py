@@ -56,7 +56,7 @@ app.layout = html.Div(
             className="bare_container ten columns offset-by-one column",
             children=[
                 dcc.Tabs(
-                    className="bare_container eight columns offset-by-four$ column",
+                    className="bare_container eight columns offset-by-four column",
                     children=[
                         dcc.Tab(
                             className="custom-tab",
@@ -69,6 +69,7 @@ app.layout = html.Div(
                                         html.Img(
                                             className="border_container twelve columns",
                                             src="https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png",
+                                            style={'height':'50%', 'width':'50%'}
                                         ),
                                         html.Div(
                                             className="pretty_container twelve columns",
