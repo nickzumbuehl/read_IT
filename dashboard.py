@@ -22,12 +22,13 @@ app = dash.Dash(__name__)
 server = app.server
 app.config.suppress_callback_exceptions = True
 
+# sui: 9e986f7fac504c11869e5068228f4ae7
 # uni: 7c0d305c05bd4c8fbd1c978c34e2613e
 # hotmail: 66f91311df8a482bb4ac74a7c96e373c
 # gmail: 4ffaa0cb22f44814800f9b47f3fc176e
 # pulling data from newsapi:
 newsapi = NewsApiClient(
-    api_key="7c0d305c05bd4c8fbd1c978c34e2613e"
+    api_key="9e986f7fac504c11869e5068228f4ae7"
 )  # client key should be secret
 
 # pulling some news here
