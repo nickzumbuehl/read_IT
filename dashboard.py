@@ -1,7 +1,7 @@
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import plotly.graph_objects as go
 import joblib
 import os
@@ -26,6 +26,7 @@ app.config.suppress_callback_exceptions = True
 # uni: 7c0d305c05bd4c8fbd1c978c34e2613e
 # hotmail: 66f91311df8a482bb4ac74a7c96e373c
 # gmail: 4ffaa0cb22f44814800f9b47f3fc176e
+
 # pulling data from newsapi:
 newsapi = NewsApiClient(
     api_key="9e986f7fac504c11869e5068228f4ae7"
@@ -528,16 +529,21 @@ app.layout = html.Div(
                             label="FILTER ENGINE",
                             children=[
                                 html.Div(
-                                    className="bare_container twelve columns",  # add a SEARCH Button (do reduce searches)
+                                    className="bare_container twelve columns",
                                     children=[
                                         html.Div(
-                                            className="row",
+                                            className="border_container one-third column",  # row
                                             children=[
+                                                html.Img(
+                                                    className="bare_container twelve columns",
+                                                    src="https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png",
+                                                    style={'height':'50%', 'width':'50%'}
+                                                ),
                                                 html.Div(
-                                                    className="one-third column",
+                                                    className="twelve columns",
                                                     children=[
                                                         html.Div(
-                                                            className="bare_container twelve columns",
+                                                            className="pretty_container twelve columns",
                                                             children=[
                                                                 dcc.Dropdown(
                                                                     id="sources",
@@ -551,10 +557,10 @@ app.layout = html.Div(
                                                     ],
                                                 ),
                                                 html.Div(
-                                                    className="one-third column",
+                                                    className="twelve columns",
                                                     children=[
                                                         html.Div(
-                                                            className="bare_container twelve columns",
+                                                            className="pretty_container_two twelve columns",
                                                             children=[
                                                                 dcc.Dropdown(
                                                                     id="language",
@@ -569,15 +575,30 @@ app.layout = html.Div(
                                                     ],
                                                 ),
                                                 html.Div(
-                                                    className="one-third column",
+                                                    className="twelve columns",
                                                     children=[
                                                         html.Div(
-                                                            className="bare_container twelve columns",
+                                                            className="pretty_container twelve columns",
                                                             children=[
                                                                 dcc.Input(
                                                                     id="word_search",
                                                                     placeholder="Key word?",
                                                                     value="oil AND euro",
+                                                                )
+                                                            ],
+                                                        ),
+                                                    ],
+                                                ),
+                                                html.Div(
+                                                    className="twelve columns",
+                                                    children=[
+                                                        html.Div(
+                                                            className="pretty_container_two twelve columns",
+                                                            children=[
+                                                                html.Button(
+                                                                    'Filter IT',
+                                                                    id="filter_button",
+                                                                    type='submit',
                                                                 )
                                                             ],
                                                         ),
@@ -652,12 +673,18 @@ app.layout = html.Div(
 @app.callback(
     Output("output", "children"),
     [
-        Input("sources", "value"),
-        Input("language", "value"),
-        Input("word_search", "value"),
+        # Input("sources", "value"),
+        # Input("language", "value"),
+        # Input("word_search", "value"),
+        Input('filter_button', "n_clicks"),
     ],
+    [
+        State('sources', 'value'),
+        State('language', 'value'),
+        State('word_search', 'value')
+    ]
 )
-def generate_output(input_sources, input_languages, input_word_search):
+def generate_output(n_clicks_button, input_sources, input_languages, input_word_search):
     everything_selected = newsapi.get_everything(
         sources=input_sources, q=input_word_search, language=input_languages,
     )
@@ -666,363 +693,239 @@ def generate_output(input_sources, input_languages, input_word_search):
 
     out = html.Div(
         children=[
-            html.Div(
-                className="one-third column",
-                children=[
-                    html.Div(
-                        className="pretty_container twelve columns",
-                        children=[
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Img(
-                                        className="pretty_container twelve columns",
-                                        src=df_.urlToImage[0],
-                                    )
-                                ],
-                            ),
-                            html.H5(className="row", children=[df_.title[0]],),
-                            html.H6(
-                                className="row",
-                                children=[
-                                    df_.description[0]
-                                    + " (Source: {})".format(df_.source[0]["name"])
-                                ],
-                            ),
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Div(
-                                        className="bare_container four columns offset-by-eight columns",
-                                        children=[
-                                            html.A(
-                                                "ReadIT",
-                                                href=df_.url[0],
-                                                target="_blank",
-                                            )
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                    html.Div(
-                        className="pretty_container_two twelve columns",
-                        children=[
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Img(
-                                        className="pretty_container_two twelve columns",
-                                        src=df_.urlToImage[1],
-                                    )
-                                ],
-                            ),
-                            html.H5(className="row", children=[df_.title[1]],),
-                            html.H6(
-                                className="row",
-                                children=[
-                                    df_.description[1]
-                                    + " (Source: {})".format(df_.source[1]["name"])
-                                ],
-                            ),
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Div(
-                                        className="bare_container four columns offset-by-eight columns",
-                                        children=[
-                                            html.A(
-                                                "ReadIT",
-                                                href=df_.url[1],
-                                                target="_blank",
-                                            )
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                    html.Div(
-                        className="pretty_container twelve columns",
-                        children=[
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Img(
-                                        className="pretty_container twelve columns",
-                                        src=df_.urlToImage[2],
-                                    )
-                                ],
-                            ),
-                            html.H5(className="row", children=[df_.title[2]],),
-                            html.H6(
-                                className="row",
-                                children=[
-                                    df_.description[2]
-                                    + " (Source: {})".format(df_.source[2]["name"])
-                                ],
-                            ),
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Div(
-                                        className="bare_container four columns offset-by-eight columns",
-                                        children=[
-                                            html.A(
-                                                "ReadIT",
-                                                href=df_.url[2],
-                                                target="_blank",
-                                            )
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                ],
-            ),
-            html.Div(
-                className="one-third column",
-                children=[
-                    html.Div(
-                        className="pretty_container_two twelve columns",
-                        children=[
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Img(
-                                        className="pretty_container_two twelve columns",
-                                        src=df_.urlToImage[3],
-                                    )
-                                ],
-                            ),
-                            html.H5(className="row", children=[df_.title[3]],),
-                            html.H6(
-                                className="row",
-                                children=[
-                                    df_.description[3]
-                                    + " (Source: {})".format(df_.source[3]["name"])
-                                ],
-                            ),
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Div(
-                                        className="bare_container four columns offset-by-eight columns",
-                                        children=[
-                                            html.A(
-                                                "ReadIT",
-                                                href=df_.url[3],
-                                                target="_blank",
-                                            )
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                    html.Img(
-                        className="border_container twelve columns",
-                        src="https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png",
-                    ),
-                    html.Div(
-                        className="pretty_container twelve columns",
-                        children=[
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Img(
-                                        className="pretty_container twelve columns",
-                                        src=df_.urlToImage[4],
-                                    )
-                                ],
-                            ),
-                            html.H5(className="row", children=[df_.title[4]],),
-                            html.H6(
-                                className="row",
-                                children=[
-                                    df_.description[4]
-                                    + " (Source: {})".format(df_.source[4]["name"])
-                                ],
-                            ),
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Div(
-                                        className="bare_container four columns offset-by-eight columns",
-                                        children=[
-                                            html.A(
-                                                "ReadIT",
-                                                href=df_.url[4],
-                                                target="_blank",
-                                            )
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                    html.Div(
-                        className="pretty_container_two twelve columns",
-                        children=[
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Img(
-                                        className="pretty_container_two twelve columns",
-                                        src=df_.urlToImage[5],
-                                    )
-                                ],
-                            ),
-                            html.H5(className="row", children=[df_.title[5]],),
-                            html.H6(
-                                className="row",
-                                children=[
-                                    df_.description[5]
-                                    + " (Source: {})".format(df_.source[5]["name"])
-                                ],
-                            ),
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Div(
-                                        className="bare_container four columns offset-by-eight columns",
-                                        children=[
-                                            html.A(
-                                                "ReadIT",
-                                                href=df_.url[5],
-                                                target="_blank",
-                                            )
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                ],
-            ),
-            html.Div(
-                className="one-third column",
-                children=[
-                    html.Div(
-                        className="pretty_container twelve columns",
-                        children=[
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Img(
-                                        className="pretty_container twelve columns",
-                                        src=df_.urlToImage[6],
-                                    )
-                                ],
-                            ),
-                            html.H5(className="row", children=[df_.title[6]],),
-                            html.H6(
-                                className="row",
-                                children=[
-                                    df_.description[6]
-                                    + " (Source: {})".format(df_.source[6]["name"])
-                                ],
-                            ),
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Div(
-                                        className="bare_container four columns offset-by-eight columns",
-                                        children=[
-                                            html.A(
-                                                "ReadIT",
-                                                href=df_.url[6],
-                                                target="_blank",
-                                            )
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                    html.Div(
-                        className="pretty_container_two twelve columns",
-                        children=[
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Img(
-                                        className="pretty_container_two twelve columns",
-                                        src=df_.urlToImage[7],
-                                    )
-                                ],
-                            ),
-                            html.H5(className="row", children=[df_.title[7]],),
-                            html.H6(
-                                className="row",
-                                children=[
-                                    df_.description[7]
-                                    + " (Source: {})".format(df_.source[7]["name"])
-                                ],
-                            ),
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Div(
-                                        className="bare_container four columns offset-by-eight columns",
-                                        children=[
-                                            html.A(
-                                                "ReadIT",
-                                                href=df_.url[7],
-                                                target="_blank",
-                                            )
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                    html.Div(
-                        className="pretty_container twelve columns",
-                        children=[
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Img(
-                                        className="pretty_container twelve columns",
-                                        src=df_.urlToImage[8],
-                                    )
-                                ],
-                            ),
-                            html.H5(className="row", children=[df_.title[8]],),
-                            html.H6(
-                                className="row",
-                                children=[
-                                    df_.description[8]
-                                    + " (Source: {})".format(df_.source[8]["name"])
-                                ],
-                            ),
-                            html.Div(
-                                className="row",
-                                children=[
-                                    html.Div(
-                                        className="bare_container four columns offset-by-eight columns",
-                                        children=[
-                                            html.A(
-                                                "ReadIT",
-                                                href=df_.url[8],
-                                                target="_blank",
-                                            )
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                    html.Img(
-                        className="border_container twelve columns",
-                        src="https://raw.githubusercontent.com/nickzumbuehl/read_IT/master/logo.png",
-                    ),
-                ],
-            ),
-        ]
+                html.Div(
+                    className="one-third column",
+                    children=[
+                        html.Div(
+                            className="pretty_container twelve columns",
+                            children=[
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Img(
+                                            className="pretty_container twelve columns",
+                                            src=df_.urlToImage[0],
+                                        )
+                                    ],
+                                ),
+                                html.H5(className="row", children=[df_.title[0]],),
+                                html.H6(
+                                    className="row",
+                                    children=[
+                                        df_.description[0]
+                                        + " (Source: {})".format(df_.source[0]["name"])
+                                    ],
+                                ),
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Div(
+                                            className="bare_container four columns offset-by-eight columns",
+                                            children=[
+                                                html.A(
+                                                    "ReadIT",
+                                                    href=df_.url[0],
+                                                    target="_blank",
+                                                )
+                                            ],
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        ),
+                        html.Div(
+                            className="pretty_container_two twelve columns",
+                            children=[
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Img(
+                                            className="pretty_container_two twelve columns",
+                                            src=df_.urlToImage[1],
+                                        )
+                                    ],
+                                ),
+                                html.H5(className="row", children=[df_.title[1]],),
+                                html.H6(
+                                    className="row",
+                                    children=[
+                                        df_.description[1]
+                                        + " (Source: {})".format(df_.source[1]["name"])
+                                    ],
+                                ),
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Div(
+                                            className="bare_container four columns offset-by-eight columns",
+                                            children=[
+                                                html.A(
+                                                    "ReadIT",
+                                                    href=df_.url[1],
+                                                    target="_blank",
+                                                )
+                                            ],
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        ),
+                        html.Div(
+                            className="pretty_container twelve columns",
+                            children=[
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Img(
+                                            className="pretty_container twelve columns",
+                                            src=df_.urlToImage[2],
+                                        )
+                                    ],
+                                ),
+                                html.H5(className="row", children=[df_.title[2]],),
+                                html.H6(
+                                    className="row",
+                                    children=[
+                                        df_.description[2]
+                                        + " (Source: {})".format(df_.source[2]["name"])
+                                    ],
+                                ),
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Div(
+                                            className="bare_container four columns offset-by-eight columns",
+                                            children=[
+                                                html.A(
+                                                    "ReadIT",
+                                                    href=df_.url[2],
+                                                    target="_blank",
+                                                )
+                                            ],
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        ),
+                    ],
+                ),
+                html.Div(
+                    className="one-third column",
+                    children=[
+                        html.Div(
+                            className="pretty_container_two twelve columns",
+                            children=[
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Img(
+                                            className="pretty_container_two twelve columns",
+                                            src=df_.urlToImage[3],
+                                        )
+                                    ],
+                                ),
+                                html.H5(className="row", children=[df_.title[3]],),
+                                html.H6(
+                                    className="row",
+                                    children=[
+                                        df_.description[3]
+                                        + " (Source: {})".format(df_.source[3]["name"])
+                                    ],
+                                ),
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Div(
+                                            className="bare_container four columns offset-by-eight columns",
+                                            children=[
+                                                html.A(
+                                                    "ReadIT",
+                                                    href=df_.url[3],
+                                                    target="_blank",
+                                                )
+                                            ],
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        ),
+                        html.Div(
+                            className="pretty_container twelve columns",
+                            children=[
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Img(
+                                            className="pretty_container twelve columns",
+                                            src=df_.urlToImage[4],
+                                        )
+                                    ],
+                                ),
+                                html.H5(className="row", children=[df_.title[4]],),
+                                html.H6(
+                                    className="row",
+                                    children=[
+                                        df_.description[4]
+                                        + " (Source: {})".format(df_.source[4]["name"])
+                                    ],
+                                ),
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Div(
+                                            className="bare_container four columns offset-by-eight columns",
+                                            children=[
+                                                html.A(
+                                                    "ReadIT",
+                                                    href=df_.url[4],
+                                                    target="_blank",
+                                                )
+                                            ],
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        ),
+                        html.Div(
+                            className="pretty_container_two twelve columns",
+                            children=[
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Img(
+                                            className="pretty_container_two twelve columns",
+                                            src=df_.urlToImage[5],
+                                        )
+                                    ],
+                                ),
+                                html.H5(className="row", children=[df_.title[5]],),
+                                html.H6(
+                                    className="row",
+                                    children=[
+                                        df_.description[5]
+                                        + " (Source: {})".format(df_.source[5]["name"])
+                                    ],
+                                ),
+                                html.Div(
+                                    className="row",
+                                    children=[
+                                        html.Div(
+                                            className="bare_container four columns offset-by-eight columns",
+                                            children=[
+                                                html.A(
+                                                    "ReadIT",
+                                                    href=df_.url[5],
+                                                    target="_blank",
+                                                )
+                                            ],
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        ),
+                    ],
+                ),
+            ]
     )
 
     return out

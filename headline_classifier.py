@@ -119,9 +119,12 @@ get_options(df_sources.name)
 
 # all german news
 everything_german = newsapi.get_everything(
-    q='oil AND USA',
-    language='en')
+    domains='Www.nzz.ch',
+    # q='NZZ',
+    # language='de'
+)
 df_ = pd.DataFrame(everything_german['articles'])
+
 df_.title[0]
 
 df_.urlToImage[5]
