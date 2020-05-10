@@ -34,7 +34,7 @@ newsapi = NewsApiClient(
 
 # pulling some news here
 everything_german = newsapi.get_everything(
-    sources="handelsblatt,wirtschafts-woche,der-tagesspiegel,focus"
+    sources="handelsblatt,wirtschafts-woche,the-washington-post,the-wall-street-journal"
     # q='Flüchtling',
     # language='de',
 )
