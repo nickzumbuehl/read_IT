@@ -29,7 +29,7 @@ app.config.suppress_callback_exceptions = True
 
 # pulling data from newsapi:
 newsapi = NewsApiClient(
-    api_key="9e986f7fac504c11869e5068228f4ae7"
+    api_key="4ffaa0cb22f44814800f9b47f3fc176e"
 )  # client key should be secret
 
 # pulling some news here
